@@ -166,6 +166,10 @@ async function renderTopContent(category) {
   const topContent = await fetchTopContent(category);
   for (let i = 1; i <= 12; i++) {
     const content = topContent[i - 1];
+    let overview = content.overview;
+    console.log(overview)
+    overview = overview.replace("'", "");
+    console.log(overview)
     const cardElement = document.getElementById(`card${i}`);
     const cardContent = `
       <div class="col-md-4 mb-4">
@@ -177,7 +181,7 @@ async function renderTopContent(category) {
             </h5>
             <div class="d-flex justify-content-between align-items-center">
               <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleOverview('card${i}')">View</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToList('${content.id}', '${content.title || content.name}', '${content.poster_path}', '${content.overview}', '${content.vote_average}')">Add to List</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addToList('${content.id}', '${content.title || content.name}', '${content.poster_path}', '${overview}', '${content.vote_average}')">Add to List</button>
             </div>
             <p class="card-text overview" style="display: none;">${content.overview}</p>
             <p class="card-text">Rating: ${content.vote_average}</p>
