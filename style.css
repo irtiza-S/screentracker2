@@ -94,7 +94,7 @@
   
   /* watchlibrary movies section */
   .flexContainer {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -104,4 +104,13 @@
   
   .img-formatting {
     height: 200px;
+  }
+  
+  
+  .fa-bookmark {
+    height: 50px;
+  }
+  
+  .savedmovieimg {
+    max-height: 200px;
   }
