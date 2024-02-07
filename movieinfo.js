@@ -35,12 +35,8 @@ searchMoviesBtn.addEventListener('click', function(e) {
         let movieDiv = document.createElement('div');
         movieDiv.innerHTML = `
           <div class='card d-flex justify-content-center align-items-center'>
-            ${item.Title}
+            <h4>${item.Title}</h4>
             <img class='img-formatting' src='${item.Poster !== 'N/A' ? item.Poster : defaultImageURL}' alt='${item.Title}'>
-            <p>Plot: ${item.Plot}</p>
-            <p>Ratings:</p>
-            <p>TMDB Rating: ${item.Ratings && item.Ratings[0] ? item.Ratings[0].Value : 'N/A'}</p>
-
             <button id='${item.imdbID}' class='btn fa-large fa-bookmark' type='submit' value='${item.imdbID}'></button>
           </div>
         `;
@@ -167,7 +163,6 @@ async function renderTopContent(category) {
   for (let i = 1; i <= 12; i++) {
     const content = topContent[i - 1];
     let overview = content.overview;
-    console.log(overview)
     overview = overview.replace("'", "");
     console.log(overview)
     const cardElement = document.getElementById(`card${i}`);
